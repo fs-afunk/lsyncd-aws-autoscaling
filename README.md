@@ -38,14 +38,6 @@ It is recommended to set it to run via crontab to ensure that it is run periodic
 ##Disclaimer
 This is a rough project that solves our specific problems and may not work with other set-ups. Not a lot of effort was spent in generalizing this project. Pull requests are welcomed.
 
-##Consulting
-Zynesis Pte Ltd is a [Consulting Partner of Amazon Web Services](https://aws.amazon.com/solution-providers/si/zynesis-consulting).
-[Drop us a mail](mailto:nihao@zynesis.com) if you require any AWS consultations.
-Follow U-Zyn Chua [on Twitter](http://twitter.com/uzyn) or [on GitHub](http://github.com/uzyn).
-
-##Sponsor
-This project is made possible by the generous sponsorship of [Teamie](https://theteamie.com) – The Collaborative Learning Network.
-
 ##License
 The MIT License
 Copyright © 2013 U-Zyn Chua & Zynesis Pte Ltd (http://zynesis.com)

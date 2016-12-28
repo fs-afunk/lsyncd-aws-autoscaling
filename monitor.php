@@ -12,8 +12,9 @@
  *    syncing of files from master to auto-scaled slaves.
  *
  * @author       U-Zyn Chua <uzyn@zynesis.com>
- * @copyright    Copyright © 2013 U-Zyn Chua & Zynesis Pte Ltd
- * @link         http://zynesis.com
+ * @author       Alex Funk <afunk@firstscribe.com>
+ * @copyright    Copyleft
+ * @link         http://www.firstscribe.com
  * @license      MIT License
  */
 
@@ -97,15 +98,11 @@ if ($instance_id == $AWS_CONF['master_ec2_instance_id']) {
     saveSlaves($slavesIDs, $APP_CONF['data_dir'] . 'slaves');
     
     
-    $ec2Instances = $ec2Client->describeInstances(array('InstanceIds' => array($AWS_CONF['master_ec2_instance_id'])));
-//     $ec2Instances = $ec2Client->describeInstances(array('InstanceIds' => $slavesIDs));
+    $ec2Instances = $ec2Client->describeInstances(array('InstanceIds' => $slavesIDs));
     
     if (empty($ec2Instances)) {
         trigger_error('Unable to obtain description of slave EC2 instances.', E_USER_ERROR);
     }
-    
-    var_dump($ec2Instances);
-    die();
     
     $slaves = array();
     
