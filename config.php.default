@@ -44,7 +44,7 @@ $AWS_CONF = array(
     'key' => 'AWS Access Key ID',
     'secret' => 'AWS Secret Key',
     'region' => 'ap-southeast-1',
-    'load_balancer_name' => 'name of load balancer',
+    'target_group_arn' => 'arn of target group',
     'master_ec2_instance_id' => 'i-xxxxxxxx'
 );
 
