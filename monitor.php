@@ -142,7 +142,7 @@ if ($instance_id == $AWS_CONF['master_ec2_instance_id']) {
     
     $LSYNCD_CONF['source'] .= '/wp-content';
     $LSYNCD_CONF['target_dir'] .= '/wp-content';
-    
+    $LSYNCD_CONF['delete'] = 'running';
 }
 
 /**

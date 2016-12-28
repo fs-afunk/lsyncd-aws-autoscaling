@@ -58,5 +58,6 @@ $LSYNCD_CONF = array(
     'source' => '/path/to/source',
     'ssh_user' => 'www_user',
     'ssh_private_key' => '/path/to/private_key.pem',
-    'target_dir' => '/path/to/target'
+    'target_dir' => '/path/to/target',
+    'delete' => 'true'
 );
