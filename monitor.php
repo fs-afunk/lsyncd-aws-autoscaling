@@ -71,7 +71,8 @@ if ($instance_id == $AWS_CONF['master_ec2_instance_id']) {
     }
     
     if (empty($slavesIDs)) {
-        trigger_error('No slave instances found.', E_USER_ERROR);
+        echo "No slaves.  Nothing to do.\n";
+        exit(0);
     }
     
     if (!hasSlavesChanged($slavesIDs, $APP_CONF['data_dir'] . 'slaves')) {
