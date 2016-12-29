@@ -7,17 +7,18 @@ Lsyncd is Live Syncing (Mirror) Daemon.
 It does the following:
 
 1. Monitors auto scaled instances that are attached to a load balancer.
-2. Automatically configures Lsyncd to sync across all attached instances to a load balancer.
-3. Monitors Lsyncd and make sure Lsyncd is always up and running, while Lsyncd does the syncing of files from master to auto-scaled slaves.
+2. On master node, configures lsyncd to sync to all slave nodes
+3. On slave nodes, configures lsyncd to sync a certain directory back to master node.
+4. Monitors Lsyncd and make sure Lsyncd is always up and running, while Lsyncd does the syncing of files from master to auto-scaled slaves.
 
 ##Pre-requisites & assumptions
 
 Lsyncd-AWS-AutoScaling requires the following to be set up and running on your master server:
 
-1. [lsyncd](https://github.com/axkibe/lsyncd) is set up on your master.
+1. [lsyncd](https://github.com/axkibe/lsyncd) is set up on all nodes.
 1. Passwordless SSH is possible from master to slave via the use of a private key.
 
-This project is tested on Lsyncd v2.0.7 and on Ubuntu 12.04.1 LTS instances.
+This project is tested on Lsyncd v2.1.5 and on Centos 7 instances.
 
 ##Set Up
 
@@ -40,4 +41,3 @@ This is a rough project that solves our specific problems and may not work with 
 
 ##License
 The MIT License
-Copyright © 2013 U-Zyn Chua & Zynesis Pte Ltd (http://zynesis.com)

@@ -7,9 +7,13 @@
  *
  * It does the following:
  * 1. Monitors auto scaled instances that are attached to a load balancer.
- * 2. Automatically configures Lsyncd to sync across all attached instances to a load balancer.
- * 3. Monitors Lsyncd and make sure Lsyncd is always up and running, while Lsyncd does the
- *    syncing of files from master to auto-scaled slaves.
+ * 2. On master node, configures lsyncd to sync to all slave nodes
+ * 3. On slave nodes, configures lsyncd to sync a certain directory back to master node.
+ * 4. Monitors Lsyncd and make sure Lsyncd is always up and running, while 
+ *    Lsyncd does the syncing of files from master to auto-scaled slaves.
+ *    
+ * This project is shamelessly stolen from https://github.com/uzyn, and modified 
+ * to work with application type load balancers and the aws-php-sdk 3.
  *
  * @author       U-Zyn Chua <uzyn@zynesis.com>
  * @author       Alex Funk <afunk@firstscribe.com>
@@ -140,8 +144,8 @@ if ($instance_id == $AWS_CONF['master_ec2_instance_id']) {
         'private_ip_address' => $ec2Instances['Reservations'][0]['Instances'][0]['PrivateIpAddress']      
     );
     
-    $LSYNCD_CONF['source'] .= '/wp-content';
-    $LSYNCD_CONF['target_dir'] .= '/wp-content';
+    $LSYNCD_CONF['source'] .= $LSYNCD_CONF['slave_dir'];
+    $LSYNCD_CONF['target_dir'] .= $LSYNCD_CONF['slave_dir'];
     $LSYNCD_CONF['delete'] = 'running';
 }
 
