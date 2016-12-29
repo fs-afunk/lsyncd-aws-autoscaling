@@ -1,12 +1,15 @@
-<?php
 /**
  * lsyncd-aws-autoscaling
  *
  * Lsyncd auto configuration that works with Amazon Web Services (AWS) Auto Scaling
+
+ * This project is shamelessly stolen from https://github.com/uzyn, and modified 
+ * to work with application type load balancers and the aws-php-sdk 3.
  *
  * @author       U-Zyn Chua <uzyn@zynesis.com>
- * @copyright    Copyright © 2013 U-Zyn Chua & Zynesis Pte Ltd
- * @link         http://zynesis.com
+ * @author       Alex Funk <afunk@firstscribe.com>
+ * @copyright    Copyleft
+ * @link         http://www.firstscribe.com
  * @license      MIT License
  */
 
