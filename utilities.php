@@ -130,3 +130,21 @@ function startLsyncd($APP_CONF)
 
     return;
 }
+
+function stopLsyncd($APP_CONF)
+{
+    $processManager = new ProcessManager();
+    $pidFile = $APP_CONF['data_dir'] . 'lsyncd.pid';
+
+    if (file_exists($pidFile)) {
+        $pid = file_get_contents($pidFile);
+
+        if ($processManager->isProcessRunning($pid)) {
+            echo "Stopping existing Lsyncd.\n";
+            $processManager->killProcess($pid);
+        }
+        unlink($pidFile);
+    }
+    
+    return;
+}

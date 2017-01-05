@@ -72,6 +72,7 @@ if ($instance_id == $AWS_CONF['master_ec2_instance_id']) {
     
     if (empty($slavesIDs)) {
         echo "No slaves.  Nothing to do.\n";
+        stopLsyncd($APP_CONF);
         exit(0);
     }
     
